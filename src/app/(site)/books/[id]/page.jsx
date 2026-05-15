@@ -12,7 +12,7 @@ export default async function BookDetails({ params }) {
   const isAuthed = cookieStore.get("demo_auth")?.value === "1";
 
   if (!isAuthed) {
-    redirect("/login");
+    redirect("/auth/login");
   }
 
   const book = books.find((item) => item.id === params.id);

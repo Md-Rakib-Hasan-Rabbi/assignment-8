@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
                 <button className="btn btn-outline btn-sm">Logout</button>
               </div>
             ) : (
-              <Link className="btn btn-primary btn-sm" href="/login">
+              <Link className="btn btn-primary btn-sm" href="/auth/login">
                 Login
               </Link>
             )}

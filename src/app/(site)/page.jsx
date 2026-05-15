@@ -25,7 +25,7 @@ export default function Home() {
               <Link className="btn btn-primary" href="/books">
                 Browse Now
               </Link>
-              <Link className="btn btn-outline" href="/login">
+              <Link className="btn btn-outline" href="/auth/login">
                 Join Free
               </Link>
             </div>
