@@ -1,11 +1,20 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import books from "@/data/books.json";
 
 export function generateStaticParams() {
   return books.map((book) => ({ id: book.id }));
 }
 
-export default function BookDetails({ params }) {
+export default async function BookDetails({ params }) {
+  const cookieStore = await cookies();
+  const isAuthed = cookieStore.get("demo_auth")?.value === "1";
+
+  if (!isAuthed) {
+    redirect("/login");
+  }
+
   const book = books.find((item) => item.id === params.id);
 
   if (!book) {
