@@ -1,21 +1,29 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import books from "@/data/books.json";
+import { auth } from "@/lib/auth";
 
 export function generateStaticParams() {
   return books.map((book) => ({ id: book.id }));
 }
 
 export default async function BookDetails({ params }) {
-  const cookieStore = await cookies();
-  const isAuthed = cookieStore.get("demo_auth")?.value === "1";
+  const resolvedParams = await Promise.resolve(params);
+  const rawId = Array.isArray(resolvedParams?.id)
+    ? resolvedParams?.id?.[0]
+    : resolvedParams?.id;
+  const bookId = rawId ? decodeURIComponent(String(rawId)) : "";
+  const headersList = await headers();
+  const session = await auth.api.getSession({
+    headers: headersList,
+  });
 
-  if (!isAuthed) {
+  if (!session) {
     redirect("/auth/login");
   }
 
-  const book = books.find((item) => item.id === params.id);
+  const book = books.find((item) => String(item.id) === String(bookId));
 
   if (!book) {
     return (

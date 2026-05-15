@@ -1,7 +1,46 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import books from "@/data/books.json";
 
+const categories = ["All", "Story", "Tech", "Science"];
+const sortOptions = [
+  { value: "latest", label: "Sort by latest" },
+  { value: "availability", label: "Sort by availability" },
+  { value: "category", label: "Sort by category" },
+];
+
 export default function BooksPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("latest");
+
+  const filteredBooks = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+    const results = books.filter((book) => {
+      const matchesCategory =
+        activeCategory === "All" || book.category === activeCategory;
+      const matchesSearch =
+        !normalizedSearch ||
+        book.title.toLowerCase().includes(normalizedSearch) ||
+        book.author.toLowerCase().includes(normalizedSearch);
+      return matchesCategory && matchesSearch;
+    });
+
+    if (sortBy === "availability") {
+      return [...results].sort(
+        (a, b) => b.available_quantity - a.available_quantity
+      );
+    }
+
+    if (sortBy === "category") {
+      return [...results].sort((a, b) => a.category.localeCompare(b.category));
+    }
+
+    return [...results].sort((a, b) => Number(b.id) - Number(a.id));
+  }, [activeCategory, searchTerm, sortBy]);
+
   return (
     <div className="bg-base-100 px-6 py-12">
       <div className="mx-auto w-full max-w-6xl space-y-8">
@@ -13,10 +52,20 @@ export default function BooksPage() {
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button className="btn btn-sm btn-primary">All</button>
-            <button className="btn btn-sm btn-outline">Story</button>
-            <button className="btn btn-sm btn-outline">Tech</button>
-            <button className="btn btn-sm btn-outline">Science</button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={
+                  activeCategory === category
+                    ? "btn btn-sm btn-primary"
+                    : "btn btn-sm btn-outline"
+                }
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -25,17 +74,31 @@ export default function BooksPage() {
             className="input input-bordered w-full md:w-80"
             placeholder="Search by title or author"
             type="text"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
           />
-          <select className="select select-bordered w-full md:w-48">
-            <option>Sort by latest</option>
-            <option>Sort by availability</option>
-            <option>Sort by category</option>
+          <select
+            className="select select-bordered w-full md:w-48"
+            value={sortBy}
+            onChange={(event) => setSortBy(event.target.value)}
+          >
+            {sortOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
-          <button className="btn btn-neutral">Search</button>
+          <button
+            type="button"
+            className="btn btn-neutral"
+            onClick={() => setSearchTerm("")}
+          >
+            Clear
+          </button>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {books.map((book) => (
+          {filteredBooks.map((book) => (
             <div key={book.id} className="card bg-base-100 shadow">
               <figure className="h-52">
                 <img
