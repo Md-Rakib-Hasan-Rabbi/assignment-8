@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "title": "The Mango Orchard",
+    "author": "Nila Rahman",
+    "description": "A warm coming-of-age story set among sunlit groves and family secrets.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "2",
+    "title": "Stars Over Sundarban",
+    "author": "Arif Hossain",
+    "description": "A riverboat scientist maps the delta and discovers a hidden observatory.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "3",
+    "title": "Signals and Stories",
+    "author": "Farzana Karim",
+    "description": "Short stories about the people behind the devices we build and love.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "4",
+    "title": "The Quiet Algorithm",
+    "author": "S. M. Chowdhury",
+    "description": "A novel about a translator who teaches machines the language of empathy.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "5",
+    "title": "Paper Boats of Dhaka",
+    "author": "Maliha Noor",
+    "description": "A poetic journey through neighborhoods, markets, and monsoon memories.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "6",
+    "title": "Pulse of the Lab",
+    "author": "Dr. Imran Ali",
+    "description": "A beginner-friendly guide to modern experiments in materials science.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "7",
+    "title": "Threads of the Bay",
+    "author": "Anika Tasnim",
+    "description": "A multigenerational saga woven around craft, trade, and resilience.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "8",
+    "title": "Designing for Tomorrow",
+    "author": "Rafiq Hasan",
+    "description": "A practical playbook for building human-centered digital products.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "9",
+    "title": "Delta Field Notes",
+    "author": "Dr. Laila Akter",
+    "description": "Travel journals and scientific notes from expeditions across the delta.",
+    "category": "Science",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "10",
+    "title": "The Library of Small Wonders",
+    "author": "Nayem Sarker",
+    "description": "A mystery set inside a floating library with a hidden second deck.",
+    "category": "Story",
+    "available_quantity": 2,
+    "image_url": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "11",
+    "title": "Code Beyond Borders",
+    "author": "Tasnova Islam",
+    "description": "Case studies on collaborative software teams across continents.",
+    "category": "Tech",
+    "available_quantity": 4,
+    "image_url": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "id": "12",
+    "title": "Skyline Biology",
+    "author": "Dr. Mahfuz Rahman",
+    "description": "Explores how urban ecosystems adapt and thrive in dense cities.",
+    "category": "Science",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80"
+  }
+]
